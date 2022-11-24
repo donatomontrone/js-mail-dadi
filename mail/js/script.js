@@ -29,15 +29,25 @@ const mailClass = ['alberto.baggio@gmail.com', 'alessio.deangelis@hotmail.com', 
 const emailElement = document.getElementById('user-mail');
 const userButton = document.querySelector('button');
 
-userButton.addEventListener('click', function(){
-    const userMail = (emailElement.value)
 
-    for (let index = 0; index < mailClass.length; index++) {
+
+userButton.addEventListener('click', function(){
+    const userMail = (emailElement.value);
+    const result = document.querySelector('p')
+    let findMail = false;
+
+    for (let i = 0; i < mailClass.length; i++) {
         
-        if (userMail == (mailClass[index])){
-            console.log('Sei iscritto!');
-        } else {
-            console.error('Non sei iscritto!')
-        }
+        if (userMail == (mailClass[i])){
+            findMail= true;
+        } 
     }
+    if (findMail){
+        result.innerHTML = `Sei iscritto alla migliore classe di Boolean, classe 81!!`
+    } else {
+        result.innerHTML = `Mi dispiace ma non sei iscritto a classe 81, ti perderai i magici recap pomeridiani di Luigi e Stefano!`
+    }
+
 })
+
+
